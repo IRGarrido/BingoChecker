@@ -1,0 +1,198 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Roboto", serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+}
+
+/* Background */
+body {
+    background-image: linear-gradient( #A8D1FF,#2B7CFF);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main */
+.container-bingo {
+    border-radius: 32px;
+    height: 90vh;
+    width: 90vw;
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-hub {
+    margin: 3% auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 20%;
+    width: 90%;
+}
+
+/* BOTÕES */
+.container-button {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.container-button button {
+    border-radius: 5rem;
+    line-height: normal;
+    height: 2rem;
+    width: 6rem;
+    font-weight: 600;
+    background-color: #A8D1FF;
+    transition: .3s;
+    border: 1px solid #333;
+}
+
+.container-button button:hover {
+    cursor: pointer;
+    height: 2.2rem;
+    width: 6.2rem;
+}
+
+/* Ultimo número */
+.container-last-number {
+    width: 30%;
+    display: flex;
+    gap: .4rem;
+    justify-content: end;
+}
+
+.container-last-number p{
+    color: #1972ff;
+    line-height: 18vh;
+
+}
+
+.container-last-number i{
+    font-size: 1.4rem;
+}
+
+.last-number {
+    height: 18vh;
+    width: 18vh;
+    border: 2px solid #1972ff;
+    color: #1972ff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/* NÚMEROS */
+
+#numbersSheet {
+    margin: 1% auto;
+    height: 70%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+}
+
+.number {
+    border: 1px solid #333;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #ddd;
+    margin: 7.5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.number:hover {
+    background-color: #aaa;
+    font-size: 1.3rem;
+}
+
+.chosen {
+    background-color: #1972ff;
+    color: #f5f5f5;
+    border: none;
+}
+
+.chosen:hover {
+    background-color: #1972ff;
+}
+
+/* ALERTA */
+.alert {
+    position: absolute;
+    right: 50vw - 400px;
+    top: 25%;
+    height: 300px;
+    width: 800px;
+    background-color: #f5f5f5;
+    border-radius: 1rem;
+    padding: 4rem 2rem;
+}
+
+.alert p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.container-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.option {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    transition: .3s;
+    color: #111;
+}
+
+.back {
+    background-color: #dd3333;
+}
+
+.back:hover {
+    cursor: pointer;
+    background-color: #bb1111;
+    color: #000;
+}
+
+.remove {
+    background-color: #dd9933;
+}
+
+.remove:hover {
+    cursor: pointer;
+    background-color: #cc8822;
+    color: #000;
+}
+
+.celebration {
+    transition: .5s;
+    position: absolute;
+    top:0;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* Responsividade */
