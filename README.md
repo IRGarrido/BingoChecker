@@ -30,7 +30,7 @@ bingo-tracker/
 │   └── script.js         # Lógica de interação com os números
 ├── index.html            # Estrutura principal da aplicação
 └── README.md             # Documentação do projeto
-
+```
 
 ## Melhorias Futuras
 - Design responsivo para uma melhor experiência em diferentes dispositivos;
@@ -41,3 +41,5 @@ bingo-tracker/
 ## Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma [issue](https://github.com/seu-usuario/bingo-tracker/issues) ou enviar um [pull request](https://github.com/seu-usuario/bingo-tracker/pulls) com sugestões de melhoria.
 
+## Autores
+- Ian Garrido Reis
