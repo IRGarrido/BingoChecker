@@ -41,6 +41,3 @@ bingo-tracker/
 ## Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma [issue](https://github.com/seu-usuario/bingo-tracker/issues) ou enviar um [pull request](https://github.com/seu-usuario/bingo-tracker/pulls) com sugestões de melhoria.
 
-## Licença
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
