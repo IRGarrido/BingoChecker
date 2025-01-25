@@ -1,4 +1,6 @@
 # Bingo Tracker
+Criado em: 24/01/2025
+Última atualização: 25/01/2025
 
 Este repositório contém um projeto simples desenvolvido em **HTML**, **CSS** e **JavaScript** com o objetivo de praticar os conceitos básicos de programação web. Trata-se de uma tela interativa para acompanhar os números já sorteados em um jogo de bingo, facilitando o acompanhamento pelos participantes.
 
