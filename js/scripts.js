@@ -1,10 +1,10 @@
-const numberSheet = document.querySelector("#numbersSheet");
 const mainContainer = document.querySelector(".container-bingo");
-const bingoButton = document.querySelector("#bingo");
-const clearButton = document.querySelector("#reset");
+const chosenNumbers = [];
+const notChosen = [];
 
 // Preencher a tabela bingo com os 75 números
-const createTabel = (numberSheet) => {
+const createTabel = () => {
+    const numberSheet = document.querySelector("#container-numbers");
     numberSheet.innerHTML = "";
 
     for (let i = 1; i <= 75; i++) {
@@ -12,18 +12,19 @@ const createTabel = (numberSheet) => {
         cell.className = `number`;
         cell.id = `${i}`;
         cell.textContent = i;
+        notChosen.push(i);
 
         numberSheet.appendChild(cell);
     }
 }
 
-createTabel(numberSheet);
-const chosenNumbers = [];
+createTabel();
+
 
 // Atualizar último número
 const lastNumberUpdate = (number) => {
     const lastNumber = document.querySelector(".last-number");
-
+    
     if (number > 0 && number <= 15) {
         lastNumber.innerText = "B" + number.toString().padStart(2, '0');
     } else if (number <= 30) {
@@ -38,14 +39,21 @@ const lastNumberUpdate = (number) => {
 }
 
 // Seleção de número
-const choseNumber = (number, chosenNumbers) => {
+const choseNumber = (number) => {
+    console.log(chosenNumbers);
+    console.log(notChosen);
+
     number.classList.add("chosen");
-    chosenNumbers.push(number.id);
-    lastNumberUpdate(number.id);
+    chosenNumbers.push(Number(number.id));
+    notChosen.splice(notChosen.indexOf(Number(number.id)), 1);
+    lastNumberUpdate(Number(number.id));
+
+    console.log(chosenNumbers);
+    console.log(notChosen);
 }
 
 // Remoção de número
-const removeNumber = (number, chosenNumbers) => {
+const removeNumber = (number) => {
     // Gerar alerta
     const alert = `<div class="alert">
         <p> Deseja remover o número ${number.id}?</p>
@@ -66,31 +74,50 @@ const removeNumber = (number, chosenNumbers) => {
     const backOption = document.querySelector(".back");
     const removeOption = document.querySelector(".remove");
 
+    // Voltar
     backOption.addEventListener('click', (e) => {
         e.preventDefault();
         alertBox.remove();
     })
 
+    // Remoção confirmada
     removeOption.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log("Removeu", number.id);
+
+        console.log(chosenNumbers);
+        console.log(notChosen);
+
         number.classList.remove("chosen");
+
+        // Se número for o último escolhido
         if (number.id == chosenNumbers[chosenNumbers.length - 1]) {
+
+            // Se houver um anterior
             if (chosenNumbers[chosenNumbers.length - 2]) {
                 lastNumberUpdate(chosenNumbers[chosenNumbers.length - 2]);
             } else {
                 const lastNumber = document.querySelector(".last-number");
                 lastNumber.innerText = "";
             }
+
             chosenNumbers.pop();
         } else {
             chosenNumbers.splice(chosenNumbers.indexOf(number.id), 1);
         }
-
+        
+        notChosen.push(Number(number.id));
         alertBox.remove();
+
+        console.log(chosenNumbers);
+        console.log(notChosen);
     })
     return;
 }
+
+// Botões
+const bingoButton = document.querySelector("#bingo");
+const clearButton = document.querySelector("#reset");
+const newNumberButton = document.querySelector("#new-number");
 
 // Comemoração
 const celebrate = () => {
@@ -146,19 +173,40 @@ numbers.forEach(number => {
         e.preventDefault();
         if (number.classList.contains("chosen")) {
             console.log(number.id, " escolhido");
-            removeNumber(number, chosenNumbers);
+            removeNumber(number);
         } else {
-            choseNumber(number, chosenNumbers);
+            choseNumber(number);
         }
     })
 })
+
+// Gerar novo número
+const generateNumber = () => {
+    if(notChosen.length == 0) {
+        celebrate();
+        return;
+    }
+
+    let newNumber = notChosen[Math.floor(Math.random() * notChosen.length)];
+    console.log(newNumber);
+
+    const numberEl = document.getElementById(`${newNumber}`)
+    console.log(newNumber);
+    choseNumber(numberEl);
+
+    console.log(chosenNumbers);
+} 
 
 // Event listener dos botões 
 bingoButton.addEventListener('click', (e) => {
     e.preventDefault();
     celebrate();
 })
-clearButton.addEventListener('click', (e, chosenNumbers) => {
+clearButton.addEventListener('click', (e) => {
     e.preventDefault();
-    clear(chosenNumbers);
+    clear();
+})
+newNumberButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    generateNumber();
 })
