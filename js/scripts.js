@@ -40,16 +40,12 @@ const lastNumberUpdate = (number) => {
 
 // Seleção de número
 const choseNumber = (number) => {
-    console.log(chosenNumbers);
-    console.log(notChosen);
 
     number.classList.add("chosen");
     chosenNumbers.push(Number(number.id));
     notChosen.splice(notChosen.indexOf(Number(number.id)), 1);
     lastNumberUpdate(Number(number.id));
 
-    console.log(chosenNumbers);
-    console.log(notChosen);
 }
 
 // Remoção de número
@@ -84,13 +80,11 @@ const removeNumber = (number) => {
     removeOption.addEventListener('click', (e) => {
         e.preventDefault();
 
-        console.log(chosenNumbers);
-        console.log(notChosen);
 
         number.classList.remove("chosen");
 
         // Se número for o último escolhido
-        if (number.id == chosenNumbers[chosenNumbers.length - 1]) {
+        if (Number(number.id) == chosenNumbers[chosenNumbers.length - 1]) {
 
             // Se houver um anterior
             if (chosenNumbers[chosenNumbers.length - 2]) {
@@ -102,14 +96,11 @@ const removeNumber = (number) => {
 
             chosenNumbers.pop();
         } else {
-            chosenNumbers.splice(chosenNumbers.indexOf(number.id), 1);
+            chosenNumbers.splice(chosenNumbers.indexOf(Number(number.id)), 1);
         }
         
         notChosen.push(Number(number.id));
         alertBox.remove();
-
-        console.log(chosenNumbers);
-        console.log(notChosen);
     })
     return;
 }
@@ -172,7 +163,6 @@ numbers.forEach(number => {
     number.addEventListener('click', (e) => {
         e.preventDefault();
         if (number.classList.contains("chosen")) {
-            console.log(number.id, " escolhido");
             removeNumber(number);
         } else {
             choseNumber(number);
@@ -191,10 +181,8 @@ const generateNumber = () => {
     console.log(newNumber);
 
     const numberEl = document.getElementById(`${newNumber}`)
-    console.log(newNumber);
     choseNumber(numberEl);
 
-    console.log(chosenNumbers);
 } 
 
 // Event listener dos botões 

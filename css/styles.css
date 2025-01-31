@@ -79,17 +79,12 @@ body {
 .container-last-number p{
     color: #1972ff;
     line-height: 18vh;
-
-}
-
-.container-last-number i{
-    font-size: 1.4rem;
 }
 
 .last-number {
     height: 18vh;
     width: 18vh;
-    border: 4px dashed #1972ff;
+    border: 4px solid #1972ff;
     color: #1972ff;
     border-radius: 24px;
     display: flex;
@@ -201,6 +196,10 @@ body {
         height: auto;
     }
 
+    .container-bingo {
+        margin: 1rem auto;
+    }
+
     .container-last-number {
         display: flex;
         gap: .4rem;
@@ -232,11 +231,68 @@ body {
 
 /* Tablet */
 @media(max-width: 768px) {
+
+    body {
+        background-image: none;
+        height: auto;
+    }
+
+    .container-bingo {
+        margin: 0;
+        height: fit-content;
+        width: 100%;
+        background-color: #efefef;
+        border-radius: 0;
+    }
+
+    .container-hub {
+        margin-top: 4rem;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-button {
+        order: 2;
+        align-items: center;
+        justify-content: center;
+        gap: .4rem;
+    }
     
-}
+    .container-button button {
+        border-radius: .5rem;
+        font-size: 16px;
+        margin: 0 0 1rem 0;
+    }
 
-@media(max-width: 430px) {
-}
+    .container-last-number {
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
-@media(max-width: 320px) {
+    .container-last-number p{
+        color: #1972ff;
+        line-height: 4rem;
+    }
+
+    .last-number {
+        height: 6rem;
+        width: 6rem;
+        margin-bottom: 1rem;
+    }
+
+    #container-numbers {
+        width: 95%;
+    }
+
+    .number {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    
 }
